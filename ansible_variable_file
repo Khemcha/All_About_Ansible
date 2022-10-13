@@ -1,0 +1,16 @@
+- hosts: node01
+# This is directive for the variable file usage.
+  vars_files:
+  # All variables used in the playbook are declared inside the variable file.
+  - httpServer_var.yaml
+  tasks:
+  - name: Install the apache http server
+    package:
+      name: "{{ webserver_package }}"
+      state: present
+  - name: Deploy the static page
+    copy:
+      dest: "{{ webserver_doc }}"
+      src: "{{ webdoc }}"
+  - debug:
+      var: output_data
