@@ -1,0 +1,5 @@
+- hosts: webservers
+# This is variable directive
+  vars:   
+    # http_port is the variable name with value
+    http_port: 80    
