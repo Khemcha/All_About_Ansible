@@ -1,9 +1,9 @@
-hosts: node
-var:
-  webpackage: httpd
-tasks:
- - name: Install Apache Webserver in node01 server
-   package:
+- hosts: node
+  var:
+   webpackage: httpd
+  tasks:
+  - name: Install Apache Webserver in node01 server
+    package:
     name: "{{ webpackage }}"
     state: present
     register: install_result
