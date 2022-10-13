@@ -6,3 +6,4 @@ tasks:
    package:
     name: "{{ webpackage }}"
     state: present
+    register: install_result
