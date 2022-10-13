@@ -5,6 +5,7 @@
   - httpServer_var.yaml
   tasks:
   - name: Install the apache http server
+  # package module help software package management on target remote machines- like installing , removal and upgrade.
     package:
       name: "{{ webserver_package }}"
       state: present
