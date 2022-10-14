@@ -13,4 +13,4 @@
             state: started
             enabled: yes
   - debug:
-      msg: install.output
+      var: install.output
