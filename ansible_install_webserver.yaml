@@ -1,9 +1,16 @@
 - hosts: node
-  var:
+  vars:
    webpackage: httpd
   tasks:
   - name: Install Apache Webserver in node01 server
-    package:
-    name: "{{ webpackage }}"
-    state: present
-    register: install_result
+    yum:
+      name: "{{ webpackage }}"
+      state: present
+    register: install_output
+  - name: start the service
+    service:
+            name: httpd
+            state: started
+            enabled: yes
+  - debug:
+      msg: install.output
