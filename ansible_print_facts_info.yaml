@@ -1,0 +1,13 @@
+---
+- name: Example playboook to print the facts information
+  hosts: all
+  tasks:
+  - name: To show the inventory_hostname output.
+    debug:
+      var: inventory_hostname
+  - name: To show the ansible_hostname output.
+    debug:
+       var: ansible_hostname
+  - name: To show the ansible_fqdn output.
+    debug:
+       var: ansible_fqdn
