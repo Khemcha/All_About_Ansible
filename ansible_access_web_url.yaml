@@ -10,6 +10,10 @@
        method: GET
        return_content: yes
     register: web_output
-  - name: Display the output captured above on accessing the web page.
+  - name: Display the output.
     debug:
      var: web_output
+  - name: Check status and display success or Failed
+    debug:
+     msg: "The URL is up and running fine"
+    when: web_output.status == 200
