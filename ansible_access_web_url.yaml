@@ -1,0 +1,15 @@
+---
+- name: This is to test web URL
+  hosts: web
+  vars:
+    url: http://192.168.18.3:8080/test_tomcat/
+  tasks:
+  - name: access the web url and capture the output.
+    uri:
+       url: "{{ url }}"
+       method: GET
+       return_content: yes
+    register: web_output
+  - name: Display the output captured above on accessing the web page.
+    debug:
+     var: web_output

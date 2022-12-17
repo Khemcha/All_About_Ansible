@@ -1,0 +1,11 @@
+---
+- name: This is sample anisble playbook to show with items loop usage
+  hosts: all
+  vars:
+    pkgs:
+    - httpd
+    - tomcat
+    - dbserver
+  debug:
+    var: "{item}"
+  with_items: pkgs
