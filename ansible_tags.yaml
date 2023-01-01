@@ -1,0 +1,19 @@
+# With Ansible we can run only specific tasks inside a playbook.
+How to use tags in Ansible playbook.
+# -- tags all
+# --tags tag_name
+# --tags [tag_name1, tag_name2]
+# --skip-tags [tag_name3,tag_name4]
+---
+name: Playbook to show the tags usage
+hosts: web
+gather_facts: false
+tasks:
+  - name: sample code
+    debug:
+      msg: "This is sample playbook with tag"
+    tags: sample_tag1
+  - name: Sample code with 2nd tasks
+    debug:
+      msg: "This is sample playbook with tag2."
+    tags: sample_tag2
