@@ -1,0 +1,12 @@
+# Using Date, Time and Timestamp in Ansible.
+---
+- name: Sample Ansible showing usage of - Date and Time
+  hosts:
+  gather_facts: true
+  tasks:
+    - name: Sample playbook for Date and Time.
+      debug:
+        var: ansible_date_time
+    - name: Usage of ISO8601
+      debug:
+        var: ansible_date_time.iso8601

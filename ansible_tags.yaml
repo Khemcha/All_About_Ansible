@@ -3,6 +3,8 @@ How to use tags in Ansible playbook.
 # -- tags all
 # --tags tag_name
 # --tags [tag_name1, tag_name2]
+# --tags tagged --> ALL tag will be executed
+# --tags untagged --> ALL those not tagged will be executed.
 # --skip-tags [tag_name3,tag_name4]
 ---
 name: Playbook to show the tags usage
