@@ -1,0 +1,16 @@
+#Ansible Magic Variables.
+
+ansible_version:
+- Contains information about current running version of ansible
+
+inventory_dir:
+- The directory of the inventory source in which the inventory_hostname was first defined
+
+inventory_file:
+- The file name of the inventory source in which te inventory_hostname was first.
+
+inventory_hostname:
+- The inventory name for the 'current' host being used to run the playbook.
+
+ansible_check_mode/ansible_diff_mode
+- Boolean that indicates if we are in check/ diff mode or not.

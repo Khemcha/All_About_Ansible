@@ -1,0 +1,8 @@
+---
+- name: Playbook directory demo
+  hosts: web
+  gather_facts: false
+  tasks:
+    - name: Show the current playbook directory
+      debug:
+        var: playbook_dir

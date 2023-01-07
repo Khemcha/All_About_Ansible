@@ -1,0 +1,16 @@
+---
+- name: Simple playbook to show the special variable usage.
+  hosts: web
+  gather_facts: false
+  tasks:
+    - name: Ansible special variable
+      debug:
+         var: "{{ item }}"
+      loop:
+        - inventory_dir
+        - inventory_file
+        - ansible_hostname
+        - inventory_hostname
+        - ansible_config_file
+        - ansible_version
+        - ansible_verbosity
