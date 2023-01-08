@@ -1,0 +1,12 @@
+# This module will help to reboot the remote server.
+---
+- name: Playbook to Reboot Remote server.
+  hosts: web
+  become: true
+  tasks:
+    - name: To reboot remote hosts
+      reboot:
+        msg: "Reboot using Ansible playbook"
+        pre_reboot_delay: 5
+        post_reboot_delay: 10
+        test_command: "whoami"
