@@ -1,0 +1,2 @@
+# Ansible vault helps to excrypt the variables/files to secure sesitive data.
+# We can use same in Playbook, Role

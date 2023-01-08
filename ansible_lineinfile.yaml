@@ -1,0 +1,22 @@
+# lineinfile is one of the ansible module to edit text in a file.
+# With this module we can insert/update/remove a single line of text in a file.
+
+---
+- name: lineinfile module demo
+  hosts: web
+  become: true
+  tasks:
+    - name: To add additional line in httpd configuration file.
+      lineinfile:
+        state: present
+        dest: /etc/httpd/conf/httpd.conf
+        # regexp: '^Listen '
+        insertafter: '^Listen'
+        line: Listen 80
+      notify: Webserver restart
+
+  handlers:
+    - name: Webserver restart
+      service:
+        name: httpd
+        state: restarted

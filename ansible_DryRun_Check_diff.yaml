@@ -1,0 +1,26 @@
+# We can dry run ansible playbook to check the playbook syntax is correct and tasks will work correctly.
+# e.g - $ansible_playbbok --check ansible_DryRun_Check_diff.yaml
+# In same line we can add --diff parameter as well to reflect the new changes without making actual changes.
+# However, using only diff will make the changes and show the changes made.
+---
+- name: Ansible playbook to show the usage of dry-run and diff
+  hosts: web
+  become: true
+  gather_facts: true
+  tasks:
+    - name: change ssh config file parameter - PermitRootLogin.
+      lineinfile:
+         dest: /etc/ssh/sshd_config
+         # Find this below string
+         regexp: '^PermitRootLogin' 
+         # Replace with this below line.
+         line: "PermitRootLogin yes"
+         state: present
+      notify: Restart ssh
+  
+  handlers:
+    - name: Restart ssh
+      service:
+         name: sshd
+         state: restarted
+      

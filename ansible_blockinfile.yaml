@@ -1,0 +1,18 @@
+# The blockinfile module in Ansible is used to insert a block of multi-line text into a file, 
+# or to ensure that a block of text is present in a file.
+---
+- name: ANsible to show blockinfile usage
+  hosts: web
+  become: true
+  tasks:
+  - name: ANsible blockinfile
+    blockinfile:
+    path: /etc/hosts
+    block: |
+      {{ item.ip }} {{ item.name }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+  loop:
+    - { name: host1, ip: 10.10.1.10 }
+    - { name: host2, ip: 10.10.1.11 }
+    - { name: host3, ip: 10.10.1.12 }
+
