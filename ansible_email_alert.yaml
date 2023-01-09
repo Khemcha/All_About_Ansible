@@ -1,0 +1,38 @@
+# To send email using Ansible, We can use the built-in mail module.
+# Here is an example of how you can use the mail module to send an email.
+
+======================================================================
+Example:- 1
+======================================================================
+
+- name: Send email
+  mail:
+    host: smtp.test.com
+    port: 25
+    username: user@test.com
+    password: password
+    to: test@example.com
+    subject: This is the email subject
+    body: This is the email body
+    cc: cc@test.com
+    bcc: bcc@test.com
+
+======================================================================
+Example:- 2
+======================================================================
+
+- name: Send email with attachment
+  mail:
+    host: smtp.test.com
+    port: 25
+    username: user@test.com
+    password: password
+    to: recipient@test.com
+    subject: This is the email subject
+    body: This is the email body
+    cc: cc@test.com
+    bcc: bcc@test.com
+    attach:
+      - /path/to/attachment1.txt
+      - /path/to/attachment2.txt
+

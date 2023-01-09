@@ -1,0 +1,12 @@
+# To clone a Git repository using Ansible, you can use the git module. 
+# Here is an example of how to use the git module to clone a repository.
+# In this example, the git module will clone the repository located at https://github.com/user/repo.git 
+# to the local directory /path/to/local/repo.
+# You can also specify a specific branch or tag to checkout using the version parameter. 
+For example:
+
+- name: Clone a specific branch
+  git:
+    repo: https://github.com/user/repo.git
+    dest: /path/to/local/repo
+    version: develop
