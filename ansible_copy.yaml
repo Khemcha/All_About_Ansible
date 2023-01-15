@@ -1,0 +1,14 @@
+# This playbook shows sample usage of copy module.
+
+---
+- name: This is sample Ansible playbook to copy a file.
+  hosts: web
+  become: false
+  tasks:
+    - name: To copy the file
+      copy:
+        src: index.html
+        dest: /var/www/html
+        owner: apache
+        mode: '0644'
+  
