@@ -1,0 +1,20 @@
+# This ansible playbook is used to print IP,Hostname, fqdn.
+
+- name: Print IP address, hostname, and FQDN
+  hosts: all
+  tasks:
+    - name: Get IP address
+      set_fact:
+        ip_address: "{{ ansible_default_ipv4.address }}"
+
+    - name: Get hostname
+      set_fact:
+        hostname: "{{ ansible_hostname }}"
+
+    - name: Get FQDN
+      set_fact:
+        fqdn: "{{ ansible_fqdn }}"
+
+    - name: Print information
+      debug:
+        msg: "IP address: {{ ip_address }}, Hostname: {{ hostname }}, FQDN: {{ fqdn }}"

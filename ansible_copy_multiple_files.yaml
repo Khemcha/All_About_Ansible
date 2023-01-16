@@ -1,0 +1,15 @@
+# Copy multiple files with fileglob module
+
+---
+- name: This is sample Ansible playbook to copy a file.
+  hosts: web
+  become: false
+  tasks:
+    - name: To copy the file
+      copy:
+        src: "{{ item }}"
+        dest: /opt/test/files
+        owner: apache
+        mode: '0644'
+      with_fileglob:
+        - "sample/*.txt"

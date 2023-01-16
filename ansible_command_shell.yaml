@@ -1,0 +1,8 @@
+---
+- name: This playbook will execute a remote shell script.
+  hosts: web
+  gather_facts: false
+  tasks:
+  - name: Run a script test.sh and pass arguments and then print the arguments.
+    script:
+      cmd: test.sh Khem Shivani Trinay
